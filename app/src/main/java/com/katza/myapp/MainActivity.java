@@ -3,9 +3,14 @@ package com.katza.myapp;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -15,6 +20,11 @@ public class MainActivity extends AppCompatActivity  {
 
     Button buttondont;
     Button buttonview;
+
+    SeekBar bar;
+
+
+    Switch meteg;
 
     ImageView imageView;
 
@@ -29,25 +39,49 @@ public class MainActivity extends AppCompatActivity  {
             return insets;
         });
         imageView = findViewById(R.id.imageView);
-
-        buttondont = findViewById(R.id.buttondont);
-        buttondont.setOnClickListener(new View.OnClickListener() {
+        bar.setProgress(bar.getMax());
+        meteg = findViewById(R.id.meteg);
+        bar = findViewById(R.id.bar);
+        meteg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                imageView.setVisibility(View.INVISIBLE);
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // כשהסוויץ' דלוק
+                    imageView.setVisibility(imageView.INVISIBLE);
+                } else {
+                    // כשהסוויץ' כבוי
+                    imageView.setVisibility(imageView.VISIBLE);
+                }
+                }
+        });
+        bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            float alpha = progress / 100f;
+                imageView.setAlpha(alpha);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "נלחץ"+seekBar.getProgress(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(MainActivity.this, "שוחרר"+seekBar.getProgress(), Toast.LENGTH_SHORT).show();
             }
         });
-
-        buttonview = findViewById(R.id.buttonview);
-        buttonview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imageView.setVisibility(View.VISIBLE);
-            }
-        });
-
-    }
+} }
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
