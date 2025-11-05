@@ -18,8 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity  {
 
-    Button buttondont;
-    Button buttonview;
+
 
     SeekBar bar;
 
@@ -39,9 +38,10 @@ public class MainActivity extends AppCompatActivity  {
             return insets;
         });
         imageView = findViewById(R.id.imageView);
-        bar.setProgress(bar.getMax());
+        ;
         meteg = findViewById(R.id.meteg);
         bar = findViewById(R.id.bar);
+        bar.setProgress(bar.getMax());
         meteg.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
