@@ -2,11 +2,8 @@ package com.katza.myapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,22 +12,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity3 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main3);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        registerForContextMenu(findViewById(R.id.textView));
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -51,11 +45,11 @@ public class MainActivity2 extends AppCompatActivity {
             finish();
         }
 
-        if (id == R.id.activity_main2) {
+         if (id == R.id.activity_main2) {
             Intent intent = new Intent(this, MainActivity2.class);
 
             startActivity(intent);
-            finish();
+             finish();
         }
         if (id == R.id.activity_main3) {
             Intent intent = new Intent(this, MainActivity3.class);
@@ -68,26 +62,4 @@ public class MainActivity2 extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu2, menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-
-        if (item.getItemId() == R.id.firstline) {
-            Toast.makeText(this, "You selected first line", Toast.LENGTH_LONG).show();
-            return true;
-        }
-
-        else if (item.getItemId() == R.id.secondline) {
-            Toast.makeText(this, "You selected second line", Toast.LENGTH_LONG).show();
-            return true;
-        }
-
-        return false;
-    }
 }

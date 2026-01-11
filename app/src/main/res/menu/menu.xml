@@ -3,16 +3,23 @@
 
     <item
         android:id="@+id/activity_main1"
-        android:title="Activity Main1"
+        android:title="Activity Main 1"
         android:icon="@drawable/img_1"
         android:orderInCategory="100"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/activity_main2"
-        android:title="Activity Main2"
+        android:title="Activity Main 2"
         android:icon="@drawable/img_2"
         android:orderInCategory="200"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/activity_main3"
+        android:title="Activity Main 3"
+        android:icon="@drawable/img_3"
+        android:orderInCategory="300"
         app:showAsAction="ifRoom" />
 
 </menu>
