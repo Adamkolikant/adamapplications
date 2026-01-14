@@ -15,10 +15,10 @@
         android:text="טופס פרטים"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginTop="32dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp" />
 
     <EditText
         android:id="@+id/etName"
@@ -26,8 +26,21 @@
         android:layout_height="wrap_content"
         android:hint="שם פרטי"
         android:inputType="textPersonName"
+        android:textAlignment="viewStart"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="גיל"
+        android:inputType="number"
+        android:textAlignment="viewStart"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -37,32 +50,10 @@
         android:layout_height="wrap_content"
         android:hint="זכר - כן או לא?"
         android:inputType="text"
+        android:textAlignment="viewStart"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:layout_constraintTop_toBottomOf="@id/etAge"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- גיל – טקסט בלבד -->
-    <TextView
-        android:id="@+id/tvAge"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="גיל :"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/etGender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnEditAge" />
-
-    <!-- כפתור ערוך ליד הגיל -->
-    <Button
-        android:id="@+id/btnEditAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ערוך"
-        android:layout_marginStart="8dp"
-        app:layout_constraintTop_toTopOf="@id/tvAge"
-        app:layout_constraintBottom_toBottomOf="@id/tvAge"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
@@ -71,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="שלח"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAge"
+        app:layout_constraintTop_toBottomOf="@id/etGender"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
